@@ -1,6 +1,8 @@
 # Import pandas and databand libraries
 import pandas as pd
 from dbnd import dbnd_tracking, task, dataset_op_logger
+
+
 @task
 def read_raw_data():
     retailData = pd.read_csv('GreatOutdoors_Retail_Products_and_Customers.csv')
@@ -41,13 +43,13 @@ def write_data_by_product_line(filteredData):
 
     golfEquipment.to_csv("GreatOutdoors_Golf_Equipment.csv", index=False)
 
+
 def prepare_retail_data():
     with dbnd_tracking(
             conf={
                 "core": {
                     "databand_url": "<databand_url>",
                     "databand_access_token": "<databand_access_token>",
-
                 }
             },
             job_name="Prepare_GreatOutdoors_demo_<tbd>",
@@ -61,5 +63,6 @@ def prepare_retail_data():
         write_data_by_product_line(filteredData)
 
         print("Finished running the Pipeline_GreatOutdoors_demo pipeline")
+
 
 prepare_retail_data()
