@@ -7,13 +7,8 @@ b. Define a new project
 Create a new project in PyCharm, any name will do.
 
 c. Add Databand packages to project env
-So to make your Pytyhon code work with Databand, you need to add some Databand libraries. Please review https://docs.databand.ai/docs/python for extra information. To be on the safeside (and also add Airflow support), please do (or add the packages otherwise) this:
-pip install databand
-
-For airflow:
-pip install dbnd-spark dbnd-airflow
-pip install dbnd-airflow-auto-tracking 
-pip install dbnd-airflow-monitor
+So to make your Pytyhon code work with Databand, you need to add some Databand libraries. Please review https://docs.databand.ai/docs/python for extra information. Please do (or add the packages otherwise) this:
+pip install databand dbnd
 
 Might your environment complain about other libraries, please add those too!
 
