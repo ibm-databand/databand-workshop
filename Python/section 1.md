@@ -1,6 +1,5 @@
 Section 1: Local environment
 a. Get pyCharm
-
 Goto https://www.jetbrains.com/pycharm/ and download PyCharm (if you do not have it yet). This workshop is based upon PyCharm but you can use any editor of your liking. Be aware of setting up a Python environment with version 3.8. That is the version we are using now.
 
 b. Define a new project
@@ -18,4 +17,4 @@ This folder holds 3 python scripts and a set of data files. Basically the order 
 2. Pipeline_GreatOutdoors_Demo.py
 3. Lineage__GreatOutdoors_Demo.py
 
-You can review the data files but the main theme is outdoors equipment sales. In step 1. the base file will be prepared, in step 2. abstracts will be created. In step 3. again abstracts will be created but mainly to get a form of lineage in Databand.
+Download the content of this folder into your project. You can review the data files but the main theme is outdoors equipment sales. In step 1. the base file will be prepared, in step 2. abstracts will be created. In step 3. again abstracts will be created but mainly to get a form of lineage in Databand.
