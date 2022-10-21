@@ -10,10 +10,7 @@
     * username: `airflow`
     * password: `airflow`
 4. Run both DAGs via Airflow webserver
-5. Login to Databand using credentials:
-    * url: https://ibm-bp-demo.databand.ai
-    * username: `artefact_user`
-    * password: `DatabandIBM!2022`
+5. Login to Databand using credentials from previous section
 6. Create a new Airflow Sync Config:
     1. Add any Airflow URL, this is required but doesn't need to a valid address
     1. Give your syncer a name
