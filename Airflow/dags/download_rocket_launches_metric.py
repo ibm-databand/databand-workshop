@@ -7,19 +7,14 @@ import requests.exceptions as requests_exceptions
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
+from dbnd import log_metric
 
 
 dag = DAG(
-    dag_id="download_rocket_launches",
+    dag_id="download_rocket_launches_metric",
     description="Download rocket pictures of recently launched rockets.",
     start_date=airflow.utils.dates.days_ago(14),
     schedule_interval="@daily",
-)
-
-download_launches = BashOperator(
-    task_id="download_launches",
-    bash_command="curl -o /tmp/launches.json -L 'https://ll.thespacedevs.com/2.0.0/launch/upcoming'",  # noqa: E501
-    dag=dag,
 )
 
 
@@ -45,6 +40,17 @@ def _get_pictures():
                 print(f"Could not connect to {image_url}.")
 
 
+def _set_metric():
+    log_metric('machine', 'your-name')
+
+
+download_launches = BashOperator(
+    task_id="download_launches",
+    bash_command="curl -o /tmp/launches.json -L 'https://ll.thespacedevs.com/2.0.0/launch/upcoming'",  # noqa: E501
+    dag=dag,
+)
+
+
 get_pictures = PythonOperator(
     task_id="get_pictures", python_callable=_get_pictures, dag=dag
 )
@@ -55,4 +61,8 @@ notify = BashOperator(
     dag=dag,
 )
 
-download_launches >> get_pictures >> notify
+set_metric = PythonOperator(
+    task_id="set_metric", python_callable=_set_metric, dag=dag
+)
+
+set_metric >> download_launches >> get_pictures >> notify
