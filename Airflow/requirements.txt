@@ -1,6 +1,0 @@
-databand==1.0.5.2
-dbnd==1.0.5.2
-dbnd-airflow==1.0.5.2
-dbnd-airflow-auto-tracking==1.0.5.2
-dbnd-airflow-monitor==1.0.5.2
-dbnd-spark==1.0.5.2
